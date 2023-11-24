@@ -22,4 +22,11 @@ class abcStop:
 
 class Stops:
     def __init__(self):
-            pass
+            self._data=json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/stop/").content.decode(encoding="utf-8"))
+
+
+    def all(self):
+        _list=[]
+        for data in self._data["data"]:
+            _list.append(abcStop(id=data["stop"]))
+        return _list
