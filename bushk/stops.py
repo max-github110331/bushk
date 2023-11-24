@@ -1,6 +1,6 @@
 import requests
 import json
-from .errrors import *
+from .errors import *
 
 
 class abcStop:
