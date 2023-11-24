@@ -1,0 +1,2 @@
+class StopNotFound(Exception):
+    pass

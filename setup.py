@@ -8,8 +8,8 @@ setuptools.setup(
     long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
     license="MIT",
-    url="https://replit.com/@MAX110331/discohooker",                                         
-    packages=["discohooker"],
+    url="https://github.com/max-github110331/bushk",                                         
+    packages=["bushk"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
