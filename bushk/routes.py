@@ -13,11 +13,9 @@ class abcRoute:
         else:
             self.normal=False
         self.bound=data["bound"]
-        self.orig_stop=Stops().get(name=data["orig_en"])
-        self.dest_stop=Stops().get(name=data["dest_en"])
 
 
-class Route:
+class Routes:
     def __init__(self):
         self._data=json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/route/").content.decode("utf-8"))
         self.all=[]

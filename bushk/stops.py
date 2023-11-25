@@ -26,7 +26,11 @@ class Stops:
             raise OptionError("You should only enter one data or you have not enter any data! 您只能輸入一項數據，或者您還沒有輸入任何數據！")
         if name != None:
             for stop in self.all:
-                if name == stop.name["en"] or name == stop.name["tc"] or name == stop.name["sc"]:
+                if name == stop.name["en"]:
+                    return stop
+                if name == stop.name["tc"]:
+                    return stop
+                if name == stop.name["sc"]:
                     return stop
         if id != None:
             for stop in self.all:
