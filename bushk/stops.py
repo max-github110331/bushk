@@ -5,8 +5,6 @@ from .errors import *
 
 class abcStop:
     def __init__(self, data):
-        if data == {}:
-            raise StopNotFound("API have not give data of this stop['{self.id}']! API尚未給出此站['{self.id}']的資料!")
         self.id=data["stop"]
         self.name={
             "en": data["name_en"],
@@ -23,7 +21,7 @@ class Stops:
             self.all.append(abcStop(data))
     
 
-    async def get(self, id: str=None, name: str=None):
+    def get(self, id: str=None, name: str=None):
         if (id == None and name == None) or (id != None and name != None):
             raise OptionError("You should only enter one data or you have not enter any data! 您只能輸入一項數據，或者您還沒有輸入任何數據！")
         if name != None:
@@ -31,7 +29,7 @@ class Stops:
                 if name == stop.name["en"] or name == stop.name["tc"] or name == stop.name["sc"]:
                     return stop
         if id != None:
-            for stop in await self.all:
+            for stop in self.all:
                 if id == stop.id:
                     return stop
         raise StopNotFound("API cannot get stop! API無法取得巴士站!")
