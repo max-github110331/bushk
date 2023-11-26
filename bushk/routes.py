@@ -19,8 +19,12 @@ class abcRoute:
 
 
 class Routes:
-    def get(route: str, service_type: str="1"):
-        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route/{route}/inbound/{service_type}").content.decode(encoding="utf-8"))
+    def get(route: str, bound: str="O", service_type: str="1"):
+        if bound == "O":
+            bound="outbound"
+        if bound == "I":
+            bound="inbound"
+        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route/{route}/{bound}/{service_type}").content.decode(encoding="utf-8"))
         if "code" in _data:
             raise RouteNotFound("API cannot get route! API無法取得路線!")
         elif _data["data"] == {}:

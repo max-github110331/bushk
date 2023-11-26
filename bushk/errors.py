@@ -4,7 +4,3 @@ class StopNotFound(Exception):
 
 class RouteNotFound(Exception):
     pass
-
-
-class OptionError(Exception):
-    pass
