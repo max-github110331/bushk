@@ -21,19 +21,9 @@ class Stops:
             self.all.append(abcStop(data))
     
 
-    def get(self, id: str=None, name: str=None):
-        if (id == None and name == None) or (id != None and name != None):
-            raise OptionError("You should only enter one data or you have not enter any data! 您只能輸入一項數據，或者您還沒有輸入任何數據！")
-        if name != None:
-            for stop in self.all:
-                if name == stop.name["en"]:
-                    return stop
-                if name == stop.name["tc"]:
-                    return stop
-                if name == stop.name["sc"]:
-                    return stop
-        if id != None:
-            for stop in self.all:
-                if id == stop.id:
-                    return stop
-        raise StopNotFound("API cannot get stop! API無法取得巴士站!")
+    def get(self, id: str):
+        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/stop/{id}").content.decode(encoding="utf-8"))
+        if _data["data"] == {}:
+            raise StopNotFound("API cannot get stop! API無法取得巴士站!")
+        else:
+            return abcStop(_data["data"])

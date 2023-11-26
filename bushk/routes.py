@@ -13,6 +13,10 @@ class abcRoute:
         else:
             self.normal=False
         self.bound=data["bound"]
+        self.stops={}
+        for stop in json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/route-stop").content.decode("utf-8"))["data"]:
+            if stop["route"] == self.route and stop["bound"] == self.bound and stop["service_type"] == self.service_type:
+                self.stops[stop["seq"]]=stop["stop"]
 
 
 class Routes:
@@ -24,7 +28,10 @@ class Routes:
 
 
     def get(self, route: str, bound: str="O", service_type: str="1"):
-        for route in self.all:
-            if route.route == route and route.bound == bound and route.service_type == service_type:
-                return route
-        raise RouteNotFound("API cannot get route! API無法取得路線!")
+        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route/{route}/inbound/{service_type}").content.decode(encoding="utf-8"))
+        if "code" in _data:
+            raise RouteNotFound("API cannot get route! API無法取得路線!")
+        elif _data["data"] == {}:
+            raise RouteNotFound("API cannot get route! API無法取得路線!")
+        else:
+            return abcRoute(_data["data"])
