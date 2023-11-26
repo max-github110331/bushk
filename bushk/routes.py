@@ -27,7 +27,7 @@ class Routes:
             self.all.append(abcRoute(data))
 
 
-    def get(self, route: str, bound: str="O", service_type: str="1"):
+    def get(self, route: str, service_type: str="1"):
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route/{route}/inbound/{service_type}").content.decode(encoding="utf-8"))
         if "code" in _data:
             raise RouteNotFound("API cannot get route! API無法取得路線!")
