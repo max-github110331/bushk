@@ -31,11 +31,3 @@ class Routes:
             raise RouteNotFound("API cannot get route! API無法取得路線!")
         else:
             return abcRoute(_data["data"])
-        
-
-    def all():
-        _data=json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/route/").content.decode("utf-8"))
-        _list=[]
-        for _route_data in _data["data"]:
-            _list.append({"route": _route_data["route"], "bound": _route_data["bound"], "service_type": _route_data["service_type"]})
-        return _list
