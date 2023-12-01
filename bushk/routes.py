@@ -20,10 +20,21 @@ class abcRoute:
 
 class Routes:
     def get(route: str, bound: str="O", service_type: str="1"):
-        if bound == "O":
-            bound="outbound"
-        if bound == "I":
-            bound="inbound"
+        match bound.lower():
+            case "o":
+                bound="outbound"
+            case "outbound":
+                bound="outbound"
+            case "ob":
+                bound="outbound"
+            case "i":
+                bound="inbound"
+            case "inbound":
+                bound="inbound"
+            case "ib":
+                bound="inbound"
+            case _:
+                raise BoundError("Bound does not follow the format! Bound不遵循格式!")
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route/{route}/{bound}/{service_type}").content.decode(encoding="utf-8"))
         if "code" in _data:
             raise RouteNotFound("API cannot get route! API無法取得路線!")

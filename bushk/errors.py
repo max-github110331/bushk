@@ -4,3 +4,7 @@ class StopNotFound(Exception):
 
 class RouteNotFound(Exception):
     pass
+
+
+class BoundError(Exception):
+    pass

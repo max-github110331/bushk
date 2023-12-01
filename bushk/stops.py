@@ -20,3 +20,11 @@ class Stops:
             raise StopNotFound("API cannot get stop! API無法取得巴士站!")
         else:
             return abcStop(_data["data"])
+        
+
+    def all():
+        _data=json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/stop/").content.decode(encoding="utf-8"))
+        _list=[]
+        for _stop_data in _data["data"]:
+            _list.append(_stop_data["stop"])
+        return _list
