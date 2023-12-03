@@ -9,7 +9,7 @@ class abcETA:
     def __init__(self, data):
         self.route=data["route"]
         self.bound=data["dir"]
-        self.dir=data["dir"]
+        self.direction=data["dir"]
         self.service_type=data["service_type"]
         if data["eta"] == None:
             self.arrive_at="No Service"

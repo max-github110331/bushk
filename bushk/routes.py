@@ -12,6 +12,7 @@ class abcRoute:
         else:
             self.normal=False
         self.bound=data["bound"]
+        self.direction=data["bound"]
         self.stops_id={}
         for stop in json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/route-stop").content.decode("utf-8"))["data"]:
             if stop["route"] == self.route and stop["bound"] == self.bound and stop["service_type"] == self.service_type:
