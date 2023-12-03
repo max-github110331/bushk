@@ -7,6 +7,7 @@ from .errors import *
 
 class abcETA:
     def __init__(self, data):
+        self.company=data["co"]
         self.route=data["route"]
         self.bound=data["dir"]
         self.direction=data["dir"]
