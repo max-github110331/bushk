@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="bushk",
-    version="0.0.1b",
+    version="0.0.1b1",
     author="MaxPython110331",
     description="取得香港巴士的數據!",
     long_description=open("README.md", "r").read(),
@@ -15,6 +15,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["requests", "datetime", "pytz"],
+    install_requires=["requests"],
     python_requires=">=3.6"
 )
