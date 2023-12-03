@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="bushk",
-    version="0.0.1b1",
+    version=input("v -> "),
     author="MaxPython110331",
     description="取得香港巴士的數據!",
     long_description=open("README.md", "r").read(),
