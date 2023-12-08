@@ -22,6 +22,13 @@ class abcETA:
             "tc": data["rmk_tc"],
             "sc": data["rmk_sc"]
         }
+        self.rmk=self.remark
+        self.destination={
+            "tc": data["dest_tc"],
+            "en": data["dest_en"],
+            "sc": data["dest_sc"]
+        }
+        self.dest=self.destination
 
 
 class ETA:
@@ -35,6 +42,14 @@ class ETA:
 
     def get_stop(stop: abcStop):
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/stop-eta/{stop.id}").content.decode("utf-8"))
+        _list=[]
+        for _route_data in _data["data"]:
+            _list.append(abcETA(_route_data))
+        return _list
+    
+
+    def get_route(route: abcStop):
+        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route-eta/{route.route}/{route.service_type}"))
         _list=[]
         for _route_data in _data["data"]:
             _list.append(abcETA(_route_data))
