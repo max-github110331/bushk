@@ -33,7 +33,7 @@ class abcETA:
 
 
 class ETA:
-    def get_route_stop(route: abcStop, stop: abcStop):
+    async def get_route_stop(route: abcStop, stop: abcStop):
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/eta/{stop.id}/{route.route}/{route.service_type}").content.decode("utf-8"))
         _list=[]
         for _data in _data["data"]:
@@ -41,7 +41,7 @@ class ETA:
         return _list
     
 
-    def get_stop(stop: abcStop):
+    async def get_stop(stop: abcStop):
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/stop-eta/{stop.id}").content.decode("utf-8"))
         _list=[]
         for _route_data in _data["data"]:
@@ -49,7 +49,7 @@ class ETA:
         return _list
     
 
-    def get_route(route: abcStop):
+    async def get_route(route: abcStop):
         _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route-eta/{route.route}/{route.service_type}").content.decode("utf-8"))
         _list=[]
         for _route_data in _data["data"]:

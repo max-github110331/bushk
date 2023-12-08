@@ -20,7 +20,7 @@ class abcRoute:
 
 
 class Routes:
-    def get(route: str, bound: str="O", service_type: str="1"):
+    async def get(route: str, bound: str="O", service_type: str="1"):
         match bound.lower():
             case "o":
                 bound="outbound"
@@ -45,7 +45,7 @@ class Routes:
             return abcRoute(_data["data"])
         
 
-    def all():
+    async def all():
         _data=json.loads(requests.get("https://data.etabus.gov.hk/v1/transport/kmb/route/").content.decode("utf-8"))
         _list=[]
         for _route_data in _data["data"]:

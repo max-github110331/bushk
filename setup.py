@@ -8,7 +8,7 @@ setuptools.setup(
     long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
     license="MIT",
-    url="https://github.com/max-github110331/bushk",                                         
+    url="https://github.com/max-github110331/bushk",
     packages=["bushk"],
     classifiers=[
         "Programming Language :: Python :: 3",
