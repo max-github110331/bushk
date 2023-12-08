@@ -6,7 +6,7 @@ from .errors import *
 class abcRoute:
     def __init__(self, data):
         self.route=data["route"]
-        self.service_type=data["service_type"]
+        self.service_type=str(data["service_type"])
         if self.service_type == "1":
             self.normal=True
         else:
