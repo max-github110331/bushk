@@ -49,7 +49,7 @@ class ETA:
     
 
     def get_route(route: abcStop):
-        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route-eta/{route.route}/{route.service_type}"))
+        _data=json.loads(requests.get(f"https://data.etabus.gov.hk/v1/transport/kmb/route-eta/{route.route}/{route.service_type}").content.decode("utf-8"))
         _list=[]
         for _route_data in _data["data"]:
             _list.append(abcETA(_route_data))
