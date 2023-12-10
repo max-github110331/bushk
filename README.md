@@ -1,14 +1,16 @@
 # Quickstart
 
-> What does `bushk` do?
+> What does BusHK do?
 > - [Get data of the bus stop in Hong Kong](#get-data-of-the-bus-stop)
 > - [Get data of route in Hong Kong](#get-data-of-the-route)
 > - [Get ETA of bus in Hong Kong](#check-eta-of-bus)
 
-**Install `bushk`**
-```shell
-pip install bushk
-```
+> **Remember to install BusHK**
+> ```shell
+> pip install bushk
+> ```
+#### [Learn more with docs](https://github.com/max-github110331/bushk/blob/main/README.md)
+
 
 ## Get data of the bus stop
 
