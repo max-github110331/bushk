@@ -14,7 +14,7 @@ pip install bushk
 
 > How can I get stop of bus?
 > 1. [Copy or reference code](#example-code)
-> 2. [Run your Python file](#check-eta-of-bus)
+> 2. [Run your Python file](#get-stop-of-bus)
 
 ### Example Code
 ```py
@@ -24,6 +24,7 @@ import bushk
 @bushk.runner
 async def run():
 	stop=bushk.Stops.get("ID OF STOP")
+	print(f"{stop.name['en']}")
 ```
 
 ## Check ETA of Bus
