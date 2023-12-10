@@ -1,21 +1,36 @@
 # Quickstart
 
->　What does `bushk` do?
-> - [Get ETA of bus in Hong Kong](#check-eta-of-bus)
-> - [Get stops of bus data in Hong Kong](#)
+> What does `bushk` do?
+> - [Get stops of bus data in Hong Kong](#get-stop-of-bus)
 > - [Get route of bus data in Hong Kong](#)
+> - [Get ETA of bus in Hong Kong](#check-eta-of-bus)
 
-## Check ETA of Bus
-
-> How can I can ETA of bus?
-> 1. [Install `bushk`](#install-bushk)
-> 2. [Copy or reference code](#example-code)
-> 3. [Run your Python file](#check-eta-of-bus)
-
-### Install `bushk`
+**Install `bushk`**
 ```shell
 pip install bushk
 ```
+
+## Get stop of bus
+
+> How can I get stop of bus?
+> 1. [Copy or reference code](#example-code)
+> 2. [Run your Python file](#check-eta-of-bus)
+
+### Example Code
+```py
+import bushk
+
+
+@bushk.runner
+async def run():
+	stop=bushk.Stops.get("ID OF STOP")
+```
+
+## Check ETA of Bus
+
+> How can I get ETA of bus?
+> 1. [Copy or reference code](#example-code)
+> 2. [Run your Python file](#check-eta-of-bus)
 
 ### Example Code
 ```py

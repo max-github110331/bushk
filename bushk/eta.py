@@ -12,10 +12,11 @@ class abcETA:
         self.bound=data["dir"]
         self.direction=data["dir"]
         self.service_type=str(data["service_type"])
-        if data["eta"] == None:
-            self.arrive_at="No Service"
-        else:
-            self.arrive_at=data["eta"].replace("T", " ")[:-6]
+        match data["eta"]:
+            case None:
+                self.arrive_at="No Service"
+            case _:
+                self.arrive_at=data["eta"].replace("T", " ")[:-6]
         self.sequence=str(data["eta_seq"])
         self.seq=self.sequence
         self.remark={
