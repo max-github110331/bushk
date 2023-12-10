@@ -1,13 +1,16 @@
 # Quickstart
 
 >　What does `bushk` do?
-> - Get ETA of bus in Hong Kong
-> - Get stops of bus data in Hong Kong
-> - Get route of bus data in Hong Kong
+> - [Get ETA of bus in Hong Kong](#check-eta-of-bus)
+> - [Get stops of bus data in Hong Kong](#)
+> - [Get route of bus data in Hong Kong](#)
 
 ## Check ETA of Bus
 
 > How can I can ETA of bus?
+> 1. [Install `bushk`](#install-bushk)
+> 2. [Copy or reference code](#example-code)
+> 3. [Run your Python file](#check-eta-of-bus)
 
 ### Install `bushk`
 ```shell
